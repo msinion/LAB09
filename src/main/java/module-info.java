@@ -7,4 +7,10 @@ module com.ucv.lab09 {
 
     opens com.ucv.lab09 to javafx.fxml;
     exports com.ucv.lab09;
+    exports com.ucv.lab09.model;
+    opens com.ucv.lab09.model to javafx.fxml;
+    exports com.ucv.lab09.controller;
+    opens com.ucv.lab09.controller to javafx.fxml;
+    exports com.ucv.lab09.service;
+    opens com.ucv.lab09.service to javafx.fxml;
 }

@@ -1,16 +1,184 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.ucv.lab09.HelloController">
-  <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-  </padding>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.ucv.lab09.controller.MainController"
+            prefWidth="530" prefHeight="450">
 
-  <Label fx:id="welcomeText"/>
-  <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+    <center>
+        <TabPane tabClosingPolicy="UNAVAILABLE">
+
+            <!-- ==================== TAB: ESTUDIANTE PREGRADO ==================== -->
+            <Tab text="Estudiante Pregrado">
+                <VBox spacing="10">
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10"/>
+                    </padding>
+
+                    <!-- Fila 1 -->
+                    <GridPane hgap="10" vgap="4">
+                        <columnConstraints>
+                            <ColumnConstraints prefWidth="170"/>
+                            <ColumnConstraints prefWidth="170"/>
+                            <ColumnConstraints prefWidth="170"/>
+                        </columnConstraints>
+
+                        <Label text="Apellidos" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                        <Label text="Nombres" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                        <Label text="Semestre" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+
+                        <TextField fx:id="txtApellidosPre"
+                                   GridPane.columnIndex="0"
+                                   GridPane.rowIndex="1"/>
+
+                        <TextField fx:id="txtNombresPre"
+                                   GridPane.columnIndex="1"
+                                   GridPane.rowIndex="1"/>
+
+                        <ComboBox fx:id="cmbSemestrePre"
+                                  GridPane.columnIndex="2"
+                                  GridPane.rowIndex="1"/>
+                    </GridPane>
+
+                    <!-- Fila 2 -->
+                    <GridPane hgap="10" vgap="4">
+                        <columnConstraints>
+                            <ColumnConstraints prefWidth="170"/>
+                            <ColumnConstraints prefWidth="170"/>
+                            <ColumnConstraints prefWidth="170"/>
+                        </columnConstraints>
+
+                        <Label text="Categoría"
+                               GridPane.columnIndex="0"
+                               GridPane.rowIndex="0"/>
+
+                        <Label text="Promedio"
+                               GridPane.columnIndex="1"
+                               GridPane.rowIndex="0"/>
+
+                        <Label text="Colegio"
+                               GridPane.columnIndex="2"
+                               GridPane.rowIndex="0"/>
+
+                        <ComboBox fx:id="cmbCategoria"
+                                  GridPane.columnIndex="0"
+                                  GridPane.rowIndex="1"/>
+
+                        <TextField fx:id="txtPromedio"
+                                   GridPane.columnIndex="1"
+                                   GridPane.rowIndex="1"/>
+
+                        <ComboBox fx:id="cmbColegio"
+                                  GridPane.columnIndex="2"
+                                  GridPane.rowIndex="1"/>
+                    </GridPane>
+
+                    <!-- Resultado -->
+                    <TextArea fx:id="txtAreaPregrado"
+                              prefHeight="170"
+                              editable="false"
+                              wrapText="true"
+                              VBox.vgrow="ALWAYS"/>
+
+                    <!-- Botones -->
+                    <HBox spacing="10" alignment="CENTER">
+                        <Button text="Crear Estudiante"
+                                onAction="#onCrearEstudiantePregrado"
+                                prefWidth="150"/>
+
+                        <Button text="Borrar"
+                                onAction="#onBorrarPregrado"
+                                prefWidth="100"/>
+
+                        <Button text="Salir"
+                                onAction="#onSalir"
+                                prefWidth="100"/>
+                    </HBox>
+                </VBox>
+            </Tab>
+
+            <!-- ==================== TAB: ESTUDIANTE POSTGRADO ==================== -->
+            <Tab text="Estudiante Postgrado">
+                <VBox spacing="10">
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10"/>
+                    </padding>
+
+                    <!-- Fila 1 -->
+                    <GridPane hgap="10" vgap="4">
+                        <columnConstraints>
+                            <ColumnConstraints prefWidth="170"/>
+                            <ColumnConstraints prefWidth="170"/>
+                            <ColumnConstraints prefWidth="170"/>
+                        </columnConstraints>
+
+                        <Label text="Apellidos"
+                               GridPane.columnIndex="0"
+                               GridPane.rowIndex="0"/>
+
+                        <Label text="Nombres"
+                               GridPane.columnIndex="1"
+                               GridPane.rowIndex="0"/>
+
+                        <Label text="Semestre"
+                               GridPane.columnIndex="2"
+                               GridPane.rowIndex="0"/>
+
+                        <TextField fx:id="txtApellidosPos"
+                                   GridPane.columnIndex="0"
+                                   GridPane.rowIndex="1"/>
+
+                        <TextField fx:id="txtNombresPos"
+                                   GridPane.columnIndex="1"
+                                   GridPane.rowIndex="1"/>
+
+                        <ComboBox fx:id="cmbSemestrePos"
+                                  GridPane.columnIndex="2"
+                                  GridPane.rowIndex="1"/>
+                    </GridPane>
+
+                    <!-- Fila 2 -->
+                    <GridPane hgap="10" vgap="4">
+                        <columnConstraints>
+                            <ColumnConstraints prefWidth="250"/>
+                        </columnConstraints>
+
+                        <Label text="Grado Académico"
+                               GridPane.columnIndex="0"
+                               GridPane.rowIndex="0"/>
+
+                        <ComboBox fx:id="cmbGrado"
+                                  GridPane.columnIndex="0"
+                                  GridPane.rowIndex="1"/>
+                    </GridPane>
+
+                    <!-- Resultado -->
+                    <TextArea fx:id="txtAreaPostgrado"
+                              prefHeight="170"
+                              editable="false"
+                              wrapText="true"
+                              VBox.vgrow="ALWAYS"/>
+
+                    <!-- Botones -->
+                    <HBox spacing="10" alignment="CENTER">
+                        <Button text="Crear Estudiante"
+                                onAction="#onCrearEstudiantePostgrado"
+                                prefWidth="150"/>
+
+                        <Button text="Borrar"
+                                onAction="#onBorrarPostgrado"
+                                prefWidth="100"/>
+
+                        <Button text="Salir"
+                                onAction="#onSalir"
+                                prefWidth="100"/>
+                    </HBox>
+                </VBox>
+            </Tab>
+
+        </TabPane>
+    </center>
+</BorderPane>

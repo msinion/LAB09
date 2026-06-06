@@ -1,4 +1,4 @@
-package com.ucv.lab09.model;
+package com.ucv.lab09.service;
 
 public interface Constantes {
 
